@@ -5,8 +5,9 @@
 
 		// Variables del formulario
 		form.method = 'POST';
-		form.action = 'http://localhost:3000/'+accion;
-
+		// Esto cambia para local o para heroku
+		// form.action = 'http://localhost:3000/'+accion;
+		form.action = accion;
 		// Añadimos el elemento
 		elemento.name = "dato";
 		elemento.value = codArt;
