@@ -41,6 +41,7 @@ app.use('/public',express.static('public'));
 app.use('/fa', express.static(__dirname + '/node_modules/font-awesome/css'));
 app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts')
 );
+app.use(express.favicon(path.join(__dirname, 'public','images','favicon.ico'))); 
 app.use(session({
   secret: 'sesion',
   resave: false,
@@ -69,7 +70,7 @@ app.options('*', function (req,res) { res.sendStatus(200); });
 // app.use('/users', require('./users/users.controller'));
 
 //rutas de MongoDB
-app.use('/articulos', usersRouter);
+app.use('/', usersRouter);
 
 // app.use(function(req, res, next) {
 //   res.status(404).createError('404');
