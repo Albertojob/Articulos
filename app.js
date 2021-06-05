@@ -5,6 +5,7 @@ var path = require('path');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var favicon = require('serve-favicon');
 
 
 // Gestion de validacion
@@ -41,7 +42,8 @@ app.use('/public',express.static('public'));
 app.use('/fa', express.static(__dirname + '/node_modules/font-awesome/css'));
 app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts')
 );
-app.use(express.favicon(path.join(__dirname, 'public','images','favicon.ico'))); 
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 app.use(session({
   secret: 'sesion',
   resave: false,
