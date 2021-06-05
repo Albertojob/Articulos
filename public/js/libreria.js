@@ -5,7 +5,7 @@
 
 		// Variables del formulario
 		form.method = 'POST';
-		form.action = 'https://localhost:3000/'+accion;
+		form.action = 'http://localhost:3000/'+accion;
 
 		// Añadimos el elemento
 		elemento.name = "dato";
