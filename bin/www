@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('ejercicio-3:server');
 // var http = require('http');
 const https = require("https"),fs = require("fs");
-const terminate = require('./terminate')
+const terminate = require('../terminate')
 
 const options = {
   key: fs.readFileSync("./localhost-key.pem"),
