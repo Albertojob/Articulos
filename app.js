@@ -4,8 +4,14 @@ var path = require('path');
 // var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var session = require('express-session');
+
+
+// Manejo del favicon
 var favicon = require('serve-favicon');
+
+// Manejo de las sessciones en base de datos mongo
+var session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 
 // Gestion de validacion
@@ -46,6 +52,9 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(session({
   secret: 'sesion',
+  store: MongoDbStore.create({
+    mongoUrl: 'mongodb+srv://dardo:Ds1528051@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority'
+  }),
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
