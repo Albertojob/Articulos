@@ -17,7 +17,7 @@
 				<div class="linea_de_titulos">Stock</div>
 				<div class="linea_de_titulos">Precio</div>
 				{% for articulo in articulos %}
-					<div class="salto" onclick="carga('articulos/show','{{articulo.codigo}}')">
+					<div class="salto" onclick="carga('show','{{articulo.codigo}}')">
 						<div class="elemento"><img class="icono" src="{{'/public/productos/' ~ articulo.codigo ~ ".jpg"}}" alt=""></div> 
 						<div class="elemento">{{articulo.codigo}}</div>
 						<div class="elemento">{{articulo.descripcion}}</div>

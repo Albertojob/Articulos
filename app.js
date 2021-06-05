@@ -52,7 +52,7 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(session({
   secret: 'sesion',
-  store: MongoDbStore.create({
+  store: MongoStore.create({
     mongoUrl: 'mongodb+srv://dardo:Ds1528051@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority'
   }),
   resave: false,
