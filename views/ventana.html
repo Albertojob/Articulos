@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="../public/stylesheets/ventana.css">
+<script defer src="/public/js/ventana.js" ></script>
+
+<div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
+                    <h2>Atención : Eliminación de Registro</h2>
+                    <span class="close" id="close">&times;</span>
+                </div>
+                <div class="modal-body flex">
+                    <p id="textoEliminar"></p>
+                </div>
+                <form id="modal_eliminar" class="modal-footer flex" method="POST" action="">
+                    <input type="hidden" name="dato" id="codigo">
+                    <input type="submit" name="aceptarEliminar" value="Aceptar">
+                    <button type="button" id="cancelarEliminar" onclick="miModal.style.display='none';">Cancelar</button>
+                    <h3 id="eliminar_respuesta"></h3>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

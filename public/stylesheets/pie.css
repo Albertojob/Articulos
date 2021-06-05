@@ -1,0 +1,16 @@
+#pie {
+    display: flex;
+    /* align-items: stretch; */
+    /* justify-content: stretch;*/
+    margin: 4px;
+    padding: 5px;
+    min-height: 50px;
+    border-radius: 7pt;
+    background: turquoise;
+    -webkit-order: 2;
+            order: 2;
+    color: white;
+    justify-content: space-evenly;
+    justify-items: space-evenly;
+    line-height: 20px;
+}

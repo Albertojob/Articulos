@@ -1,0 +1,66 @@
+{% extends "layout.twig" %}
+{% block cuerpo %}
+<head>
+    <link href="../public/stylesheets/formulario.css" rel="stylesheet">
+    <title>Document</title>
+    <script defer src="/public/js/libreria.js"></script>
+</head>
+<form id= "formulario_coches" name="formulario" method="POST" 
+enctype="multipart/form-data" >
+<h3 id="mensaje"> </h3>
+<div id="cuerpo">
+    <div id="datos">
+            <div>
+                <input type="hidden" name="_id" value="{{articulo._id}}" >
+                <input type="hidden" id="id1" name="codigo" value="{{articulo.codigo}}" >
+                <label for="codigo">Codigo</label>
+                <input type="text" id="id2" value="{{articulo.codigo}}" disabled>
+            </div>
+            <div>
+                <label for="modelo">Descripcion</label>
+                <input type="text" id="modelo" name="descripcion" value="{{articulo.descripcion}}" onkeypress="document.getElementById('mensaje').innerHTML = ' '">
+            </div>
+            <div>
+                <label for="familia">familia</label>
+                <select name="familia" id="familia">
+                    {% for familia in familias %}
+                        <option value="{{familia}}" {% if familia == articulo.familia %}selected{% endif %}>{{familia}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div >
+                <label for="precio">Precio</label>
+                <input type="text" name="precio"  value="{{articulo.precio}}" step="0.01">            
+            </div>
+            <div >
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" value="{{articulo.stock}}">            
+            </div>    
+            <div id="botones">
+                <input type="button" id="aceptar" name="aceptar" value="Aceptar">
+                <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
+            </div>
+            
+    </div>
+    <div id="seccionFoto">
+        <div class="marco">
+            <img class="imagen" id="foto" src="/public/productos/{{articulo.codigo}}.jpg">
+        </div>   
+        <label class="ficheroFoto">
+            <input type="file"  id="imagen_fichero" name="imagen_fichero" accept="image/png , image/jpeg" onchange="cargafoto()">
+            Seleccione Foto
+            </label> 
+            <label id="nombre_foto"></label>
+        <script>
+            function cargafoto(){
+                document.getElementById('foto').src = 
+                window.URL.createObjectURL(document.getElementById("imagen_fichero").files[0]);
+                document.getElementById('nombre_foto').innerHTML = 
+                document.getElementById("imagen_fichero").files[0].name;
+            }
+        </script>            
+    </div>
+</div>
+</form>
+{% endblock %}
+

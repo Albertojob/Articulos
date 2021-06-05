@@ -1,0 +1,34 @@
+{% extends "layout.twig" %}
+{% block cuerpo %}
+<head>
+	<link rel="stylesheet" href="../public/stylesheets/index.css">
+	<script defer src="/public/js/libreria.js"></script>
+</head>
+<div class="titulos">
+	<div id='cuerpo'>
+		<aside>
+			<h4> Los vehiculos encontrados son los siguientes: </h4>
+			<div class="listado" id="listado">
+				<div class="linea_de_titulos">Imagen</div>
+				<div class="linea_de_titulos">Codigo</div>
+				<div class="linea_de_titulos">Descripcion</div>
+				<div class="linea_de_titulos">Familia</div>
+				<div class="linea_de_titulos">Impuesto</div>
+				<div class="linea_de_titulos">Stock</div>
+				<div class="linea_de_titulos">Precio</div>
+				{% for articulo in articulos %}
+					<div class="salto" onclick="carga('articulos/show','{{articulo.codigo}}')">
+						<div class="elemento"><img class="icono" src="{{'/public/productos/' ~ articulo.codigo ~ ".jpg"}}" alt=""></div> 
+						<div class="elemento">{{articulo.codigo}}</div>
+						<div class="elemento">{{articulo.descripcion}}</div>
+						<div class="elemento">{{articulo.familia}}</div>
+						<div class="elemento">{{articulo.impuesto}}</div>
+						<div class="elemento">{{articulo.stock}}</div>
+						<div class="elemento">{{articulo.precio}}</div>
+					</div>					
+				{% endfor %}
+			</div>
+		</aside>
+	</div>
+</div>
+{% endblock %}
