@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 // Manejo del favicon
 var favicon = require('serve-favicon');
 
-// Manejo de las sessciones en base de datos mongo
+// Manejo de las sesiones en base de datos mongo
 var session = require('express-session');
 const MongoStore = require('connect-mongo');
 
@@ -25,10 +25,12 @@ var app = express();
 
 var mongoDB = 'mongodb+srv://dardo:Ds1528051@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority';
 
+
 mongoose.connect(mongoDB,{
   useUnifiedTopology:true,
   useCreateIndex: true,
-  useNewUrlParser:true
+  useNewUrlParser:true,
+  useFindAndModify: false
 });
 mongoose.Promise=global.Promise;
 var db =mongoose.connection;
@@ -93,11 +95,11 @@ app.use(function(err, req, res, next) {
   // res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  console.log("Pasando por errores");
-  console.log(err);
-  console.log(createError(404));
-  res.status(err.status || 500);
-  res.render('../views/error',{error :err});
+  // console.log("Pasando por errores");
+  // console.log(err);
+  // console.log(createError(404));
+//   res.status(err.status || 500);
+    res.render('../views/error',{error :err});
 });
 
 module.exports = app;

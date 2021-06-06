@@ -7,7 +7,10 @@
 <div class="titulos">
 	<div id='cuerpo'>
 		<aside>
-			<h4> Los vehiculos encontrados son los siguientes: </h4>
+			<div id="subtitulos">
+				<h4> Los Articulos en Stock son los siguientes: </h4>
+				<button onclick="carga('crear','')">Nuevo Articulo</button>
+			</div>
 			<div class="listado" id="listado">
 				<div class="linea_de_titulos">Imagen</div>
 				<div class="linea_de_titulos">Codigo</div>
@@ -17,7 +20,7 @@
 				<div class="linea_de_titulos">Stock</div>
 				<div class="linea_de_titulos">Precio</div>
 				{% for articulo in articulos %}
-					<div class="salto" onclick="carga('show','{{articulo.codigo}}')">
+					<div class="salto" onclick="carga('editar','{{articulo._id}}')">
 						<div class="elemento"><img class="icono" src="{{'/public/productos/' ~ articulo.codigo ~ ".jpg"}}" alt=""></div> 
 						<div class="elemento">{{articulo.codigo}}</div>
 						<div class="elemento">{{articulo.descripcion}}</div>
