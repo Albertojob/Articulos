@@ -23,8 +23,7 @@ var usersRouter = require('./routes/articulos.js');
 
 var app = express();
 
-var mongoDB = 'mongodb+srv://dardo:Ds1528051@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority';
-
+var mongoDB = 'mongodb+srv://dfeac:Dcfpeac73@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority';
 
 mongoose.connect(mongoDB,{
   useUnifiedTopology:true,
@@ -58,22 +57,21 @@ app.use(session({
   
   store: MongoStore.create({
     
-    mongo "mongodb+srv://cluster0.wghjh.mongodb.net/tienda" --username dfpeac
+    
   
     
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
-}))
-
+}),
 
 //habilitar CORS
-app.use(function(inRequest, inResponse, inNext){
+app.use(function (inRequest, inResponse, inNext){
   inResponse.header('Access-Control-Allow-Origin', '*');
   inResponse.header('Access-Control-Allow-Methods', "GET,POST,DELETE,OPTIONS");
   inResponse.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,Accept");
   inNext();
-});
+}),
 
 // pre-fligth response
 app.options('*', function (req,res) { res.sendStatus(200); });
@@ -106,4 +104,4 @@ app.use(function(err, req, res, next) {
     res.render('../views/error',{error :err});
 }
 
-module.exports = app;
+)
