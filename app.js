@@ -55,8 +55,16 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(session({
   secret: 'sesion',
   store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://dardo:Ds1528051@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority'
-  }),
+    mongoUrl: 'mongodb+srv://
+    const MongoClient = require('mongodb').MongoClient;
+    const uri = "mongodb+srv://dfpeac:Dcfpeac73@cluster0.wghjh.mongodb.net/tiendagi?retryWrites=true&w=majority";
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    client.connect(err => {
+      const collection = client.db("test").collection("devices");
+      // perform actions on the collection object
+      client.close();
+    });
+    
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
@@ -100,6 +108,6 @@ app.use(function(err, req, res, next) {
   // console.log(createError(404));
 //   res.status(err.status || 500);
     res.render('../views/error',{error :err});
-});
+}
 
 module.exports = app;
