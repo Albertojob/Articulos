@@ -60,7 +60,7 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(session({
   secret: 'sesion',
   store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://dfpeac:Dcfpeac73@cluster0.aycnp.gcp.mongodb.net/tienda?retryWrites=true&w=majority'
+    mongoUrl: 'mongo "mongodb+srv://cluster0.wghjh.mongodb.net/tienda"-username dfpeac'
   }),
   resave: false,
   saveUninitialized: true,
