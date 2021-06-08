@@ -54,16 +54,12 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(session({
   secret: 'sesion',
+
+  
   store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://
-    const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://dfpeac:Dcfpeac73@cluster0.wghjh.mongodb.net/tiendagi?retryWrites=true&w=majority";
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(err => {
-      const collection = client.db("test").collection("devices");
-      // perform actions on the collection object
-      client.close();
-    });
+    
+    mongo "mongodb+srv://cluster0.wghjh.mongodb.net/tienda" --username dfpeac
+  
     
   resave: false,
   saveUninitialized: true,
